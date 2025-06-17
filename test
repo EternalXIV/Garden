@@ -6,10 +6,11 @@ local request = (syn and syn.request) or request or (http and http.request) or h
 local HttpService = game:GetService("HttpService")
 local Players = game:GetService("Players")
 local player = Players.LocalPlayer
+local MarketplaceService = game:GetService("MarketplaceService")
 
 local validKeys = {
     ["EMC-8Z5-AFHJK-ADAD0001"] = "https://title.ddshop-th.com/message.php",
-    ["EMC-8Z5-AFHJK-AFGJKAK2"] = "https://title.ddshop-th.com/emc888/message.php",
+    ["EMC-8Z5-AFHJK-AFGJKAK2"] = "https://title.ddshop-th.com/emc888/message.php", --หมด 6/7 2025
     ["EMC-WEB-TEST-03"] = "https://example.com/api/device3"
 }
 
@@ -24,8 +25,48 @@ end
 
 local API_URL = validKeys[USER_KEY]
 
+-- Function to get current place info
+local function getCurrentPlaceInfo()
+    local placeId = game.PlaceId
+    local success, placeInfo = pcall(function()
+        return MarketplaceService:GetProductInfo(placeId)
+    end)
+    
+    if not success then
+        return nil, "Failed to get place info"
+    end
+    
+    local isInGame = true
+    if player:FindFirstChild("PlayerGui") and player.PlayerGui:FindFirstChild("LoadingScreen") then
+        isInGame = false
+    end
+    
+    return {
+        placeId = placeId,
+        placeName = placeInfo.Name,
+        isInGame = isInGame
+    }
+end
+
+local function detectGame()
+    local placeId = tostring(game.PlaceId) -- แปลงเป็น string เพื่อความปลอดภัย
+    print("ตรวจพบเกม PlaceID:", placeId)
+    
+    -- ใช้ string เป็น key ในตาราง
+    local supportedGames = {
+        ["4520749081"] = "kinglegacy",
+        ["6381829480"] = "kinglegacy",
+        ["5985232436"] = "growagarden",
+        ["126884695634066"] = "growagarden" -- ใช้ string เป็น key
+    }
+    
+    return supportedGames[placeId] or "unsupported"
+end
+
 -- ระบบ King Legacy
 local function KingLegacySystem()
+    print("กำลังใช้งานสคริปต์ King Legacy")
+    
     local targetItems = {
         ["Hydra's Tail"] = 0,
         ["Sea King's Fin"] = 0,
@@ -95,47 +136,60 @@ end
 
 -- ระบบ Grow a Garden
 local function GrowAGardenSystem()
+    print("กำลังใช้งานสคริปต์ Grow a Garden")
+    
     local leaderstats = player:WaitForChild("leaderstats")
     local money = leaderstats:WaitForChild("Sheckles")
-    
+
     local honeyValue = player:WaitForChild("PlayerGui"):WaitForChild("Honey_UI")
         :WaitForChild("Frame"):WaitForChild("TextLabel1"):WaitForChild("val")
-    
-    local function findPets()
-        local pets = {}
+
+    local function findAllPets()
+        local petCounts = {}
         local locations = {player.Backpack, player.Character}
         
         for _, location in ipairs(locations) do
             if location then
                 for _, item in ipairs(location:GetChildren()) do
                     if item:GetAttribute("ItemType") == "Pet" then
-                        table.insert(pets, item.Name:gsub("%s%[.+%]", ""))
+                        local cleanName = item.Name:gsub("%s%[.+%]", "")
+                        petCounts[cleanName] = (petCounts[cleanName] or 0) + 1
                     end
                 end
             end
         end
         
-        return pets
+        return petCounts
     end
-    
-    while task.wait(30) do
-        local pets = pcall(findPets)
+
+    local function sendToServer()
+        local petCounts = findAllPets()
+        local petList = {}
         
+        for name, count in pairs(petCounts) do
+            table.insert(petList, string.format("%s x%d", name, count))
+        end
+
         local data = {
             key = USER_KEY,
             device_name = DEVICE_NAME,
             player = player.Name,
             money = money.Value,
             honey = honeyValue.Value,
-            pets = pets,
+            pets = petList,
             online = true,
             script_running = true,
             timestamp = os.date("%Y-%m-%d %H:%M:%S"),
             game_type = "growagarden"
         }
-        
-        pcall(function()
-            request({
+
+        if not request then
+            warn("[ERROR] This executor doesn't support request()")
+            return
+        end
+
+        local success, response = pcall(function()
+            return request({
                 Url = API_URL,
                 Method = "POST",
                 Headers = {
@@ -144,16 +198,38 @@ local function GrowAGardenSystem()
                 Body = HttpService:JSONEncode(data)
             })
         end)
+        
+        if not success then
+            warn("[ERROR] Failed to send data:", response)
+        end
+    end
+
+    while task.wait(10) do
+        pcall(sendToServer)
     end
 end
 
--- เริ่มทั้งสองระบบพร้อมกัน
-task.spawn(function()
+local gameType = detectGame()
+print("ผลลัพธ์การตรวจสอบ:", gameType)
+
+if gameType == "kinglegacy" then
+    print("✅ เริ่มระบบ King Legacy")
     pcall(KingLegacySystem)
-end)
-
-task.spawn(function()
+elseif gameType == "growagarden" then
+    print("✅ เริ่มระบบ Grow a Garden")
     pcall(GrowAGardenSystem)
-end)
-
-print("เริ่มทำงานระบบติดตามข้อมูลทั้งสองเกมแล้ว")
+else
+    -- สร้างข้อความแสดงรายละเอียด
+    local errorMsg = string.format([[
+    ❌ เกมปัจจุบันไม่รองรับ
+    Place ID ที่ตรวจพบ: %s
+    สคริปต์รองรับเฉพาะ:
+    - King Legacy (4520749081, 6381829480)
+    - Grow a Garden (5985232436, 126884695634066)
+    สคริปต์จะปิดตัวเองใน 5 วินาที
+    ]], game.PlaceId)
+    
+    print(errorMsg)
+    wait(5)
+    return
+end
