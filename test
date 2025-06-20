@@ -1,326 +1,304 @@
-repeat arkNfwouhm() until FCaYAZtqAR().XLqmZRpDkc ~= nil
+repeat wait() until getgenv().DEVICE_NAME ~= nil
 
+if not game:IsLoaded() then repeat game.Loaded:Wait() until game:IsLoaded() end
 
-if not SHsSRMDPUc:JotIVoHqDn() then repeat SHsSRMDPUc.qlbVjFxGKG:xcGscPBPkn() until SHsSRMDPUc:JotIVoHqDn() end
+local request = (syn and syn.request) or request or (http and http.request) or http_request or (fluxus and fluxus.request) or getgenv().request
+local HttpService = game:GetService("HttpService")
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+local MarketplaceService = game:GetService("MarketplaceService")
 
+local DEVICE_NAME = getgenv().DEVICE_NAME or "Unknown Device"
 
-local oJTSeKdZVL = (YwWrASAHnJ and YwWrASAHnJ.oJTSeKdZVL) or oJTSeKdZVL or (dEJkWzIiSP and dEJkWzIiSP.oJTSeKdZVL) or HOFyRdKaEA or (YWQJeuveme and YWQJeuveme.oJTSeKdZVL) or FCaYAZtqAR().oJTSeKdZVL
-local NFlElUoplj = SHsSRMDPUc:ofiOqwwSvm("NFlElUoplj")
-local LoFwpMWOrm = SHsSRMDPUc:ofiOqwwSvm("LoFwpMWOrm")
-local fUdmyQIjio = LoFwpMWOrm.cpfyzyidFx
-local FfrAkDaJGC = SHsSRMDPUc:ofiOqwwSvm("FfrAkDaJGC")
-
-
-local XLqmZRpDkc = FCaYAZtqAR().XLqmZRpDkc or "iwGtfKPEQw YgtlzfQFVU"
-
-
--- nOLbERttOa oVtDdVnJXG jrAbgENIyX WhuCbUlzPV fteaCKieUB eRErEoJFMj
-local function uaEdfcLabY()
-    local uHphHLZuMA = SHsSRMDPUc.KrWNiCntaB
-    local qYTzfHCHsY, vjsEsNtOrS = emNcQfhLPv(function()
-        return FfrAkDaJGC:sVtTYYDHJV(uHphHLZuMA)
+-- Function to get current place info
+local function getCurrentPlaceInfo()
+    local placeId = game.PlaceId
+    local success, placeInfo = pcall(function()
+        return MarketplaceService:GetProductInfo(placeId)
     end)
     
-    if not qYTzfHCHsY then
-        return nil, "yBrDzNnrNW oVtDdVnJXG jrAbgENIyX fteaCKieUB eRErEoJFMj"
+    if not success then
+        return nil, "Failed to get place info"
     end
     
-    local NLUdpKDwRy = true
-    if fUdmyQIjio:RAixUHrGdd("zCDgqjeuzU") and fUdmyQIjio.zCDgqjeuzU:RAixUHrGdd("rXlZQzRQMZ") then
-        NLUdpKDwRy = false
+    local isInGame = true
+    if player:FindFirstChild("PlayerGui") and player.PlayerGui:FindFirstChild("LoadingScreen") then
+        isInGame = false
     end
     
     return {
-        uHphHLZuMA = uHphHLZuMA,
-        oBQiRlIlXw = vjsEsNtOrS.DraOBhfqep,
-        NLUdpKDwRy = NLUdpKDwRy
+        placeId = placeId,
+        placeName = placeInfo.Name,
+        isInGame = isInGame
     }
 end
 
-
--- TXQEUaMuBn KuGQavbewh LgkPKfFHfB
-local function CdiPAAjljA()
-    local uHphHLZuMA = ELgyGmflqs(SHsSRMDPUc.KrWNiCntaB)
+-- Game detection system
+local function detectGame()
+    local placeId = tostring(game.PlaceId)
     
-    local RPBjTQGFHb = {
-        ["4520749081"] = "QsHmwEksgU",
-        ["6381829480"] = "QsHmwEksgU",
-        ["5985232436"] = "BivLeMoQsd",
-        ["126884695634066"] = "BivLeMoQsd"
+    local supportedGames = {
+        ["4520749081"] = "kinglegacy",
+        ["6381829480"] = "kinglegacy",
+        ["5985232436"] = "growagarden",
+        ["126884695634066"] = "growagarden"
     }
     
-    return RPBjTQGFHb[uHphHLZuMA] or "vbEnkkobTB"
+    return supportedGames[placeId] or "unsupported"
 end
 
-
--- IHevQKKdTR fykHLBIPKo HhengqDjHj
-local function YBQXLPqcii()
-    cOnaBTRFfp("กำลังใช้งานสคริปต์ IHevQKKdTR fykHLBIPKo")
+-- King Legacy System
+local function KingLegacySystem()
+    print("กำลังใช้งานสคริปต์ King Legacy")
     
-    local mbsJoOheSd = {
-        ["ipwGSkhFrb'LojtqviGPv HdiSJPJClR"] = 0,
-        ["zJxGTjfSZq IHevQKKdTR'LojtqviGPv kvgHBwIhwI"] = 0,
-        ["zJxGTjfSZq'LojtqviGPv pHaEgDEZQu"] = 0,
-        ["zJxGTjfSZq IHevQKKdTR'LojtqviGPv kkWDxfUXOU"] = 0
+    local targetItems = {
+        ["Hydra's Tail"] = 0,
+        ["Sea King's Fin"] = 0,
+        ["Sea's Wraith"] = 0,
+        ["Sea King's Blood"] = 0
     }
     
-    local HyyVShBWQw = {
-        ["UeILtLpYZP"] = 0,
-        ["NWgDyoMvHT"] = 0,
-        ["CbKPJjIsPw"] = 0,
-        ["tPVYUhSdDF"] = 0,
-        ["tMcNrlcUVT"] = 0
+    local targetFruits = {
+        ["Dragon"] = 0,
+        ["Gate"] = 0,
+        ["Dough"] = 0,
+        ["Toy"] = 0,
+        ["Phoenix"] = 0
     }
     
-    local function zTIpWivQNB()
-        local vPKvWLilZE = fUdmyQIjio:XRZLPlVmeB("zCDgqjeuzU")
+    local function scanGUI()
+        local playerGui = player:WaitForChild("PlayerGui")
         
-        for OJdDoUvVMk, OuJQYkKiMK in CLHuYTBSgI(mbsJoOheSd) do
-            local HoKsGCWrgg = vPKvWLilZE:RAixUHrGdd(OJdDoUvVMk, true)
-            if HoKsGCWrgg then
-                local PSjZubntle = HoKsGCWrgg:RAixUHrGdd("cXQYTfxQdT") or HoKsGCWrgg:oRxXIqNnix("GZCxzNjHMu")
-                if PSjZubntle then
-                    mbsJoOheSd[OJdDoUvVMk] = vJarKUWRys(PSjZubntle.ITwaJrwARA:tcooOrDSey("%CuRyXydXhO+")) or 0
+        for itemName, _ in pairs(targetItems) do
+            local guiElement = playerGui:FindFirstChild(itemName, true)
+            if guiElement then
+                local amountLabel = guiElement:FindFirstChild("Amount") or guiElement:FindFirstChildWhichIsA("TextLabel")
+                if amountLabel then
+                    targetItems[itemName] = tonumber(amountLabel.Text:match("%d+")) or 0
                 end
             end
         end
         
-        for spuXiDPJMq, OuJQYkKiMK in CLHuYTBSgI(HyyVShBWQw) do
-            local HoKsGCWrgg = vPKvWLilZE:RAixUHrGdd(spuXiDPJMq .. "ILjDrQSQJa", true)
-            if HoKsGCWrgg then
-                local PSjZubntle = HoKsGCWrgg:RAixUHrGdd("cXQYTfxQdT") or HoKsGCWrgg:oRxXIqNnix("GZCxzNjHMu")
-                if PSjZubntle then
-                    HyyVShBWQw[spuXiDPJMq] = vJarKUWRys(PSjZubntle.ITwaJrwARA:tcooOrDSey("%CuRyXydXhO+")) or 0
+        for fruitName, _ in pairs(targetFruits) do
+            local guiElement = playerGui:FindFirstChild(fruitName .. "Fruit", true)
+            if guiElement then
+                local amountLabel = guiElement:FindFirstChild("Amount") or guiElement:FindFirstChildWhichIsA("TextLabel")
+                if amountLabel then
+                    targetFruits[fruitName] = tonumber(amountLabel.Text:match("%d+")) or 0
                 end
             end
         end
     end
     
-    while gRGXAPPiHd.arkNfwouhm(10) do
-        emNcQfhLPv(zTIpWivQNB)
+    while task.wait(10) do
+        pcall(scanGUI)
         
-        local CSXCwqYsbG = {
-            XmIsZarXkv = FCaYAZtqAR().sfFdUfUwBg
-            JqCzktSlYR = XLqmZRpDkc,
-            fUdmyQIjio = fUdmyQIjio.DraOBhfqep,
-            oIAJKSzArJ = mbsJoOheSd,
-            AQbvnKWMMZ = HyyVShBWQw,
-            zyHrUABvZt = true,
-            rLdULTuiGh = true,
-            shHDHmNBKa = ncVDUHvsTa.mYTJYYVbFS("%KfJXnEKkoE-%HaDzfBNUxj-%CuRyXydXhO %EzmKysiSqC:%oeGcYkKAca:%edLoJCWrbr"),
-            meaFEMGDfP = "QsHmwEksgU"
+        local data = {
+            apikey = getgenv().API_KEY
+            device_name = DEVICE_NAME,
+            player = player.Name,
+            items = targetItems,
+            fruits = targetFruits,
+            online = true,
+            script_running = true,
+            timestamp = os.date("%Y-%m-%d %H:%M:%S"),
+            game_type = "kinglegacy"
         }
         
-        emNcQfhLPv(function()
-            oJTSeKdZVL({
-                qYpwSMMepE = "HKiqsgdkeH://FDDCccPvnn.UMWHQEjRhl-rzGVNcrODD.hDrHAMNkZh/EgQRfmEjeI.FDFbVSxSTM",
-                RfaPWFKVWD = {
-                    ["fUweVQRRBO-WDmuxcSlew"] = "XvDvOscBKc/CAVQOIuQFT"
+        pcall(function()
+            request({
+                Url = "https://title.ddshop-th.com/message.php",
+                Headers = {
+                    ["Content-Type"] = "application/json"
                 },
-                tBfNBAFGal = NFlElUoplj:HfzbAtWAtO(CSXCwqYsbG)
+                Body = HttpService:JSONEncode(data)
             })
         end)
     end
 end
 
-
--- nOLbERttOa oVtDdVnJXG mnCEGUkrQw pRMEfXiIJG WSlNezTgcv
-local function EUXMKqUkhv()
-    local eeSldIkveN = {}
-    local VclCEYdmhe = 0
-    local fUdmyQIjio = SHsSRMDPUc:ofiOqwwSvm("LoFwpMWOrm").cpfyzyidFx
+-- Function to find all sprinklers
+local function findAllSprinklers()
+    local sprinklerCounts = {}
+    local totalSprinklers = 0
+    local player = game:GetService("Players").LocalPlayer
     
-    if not fUdmyQIjio then
-        cOnaBTRFfp("❌ ไม่พบผู้เล่น")
+    if not player then
+        print("❌ ไม่พบผู้เล่น")
         return {}
     end
 
-
-    local lSWrlyriNx = {}
-    if fUdmyQIjio:RAixUHrGdd("wGpqrluffK") then
-        aIOCFiViyg.BaBNSzgEnm(lSWrlyriNx, fUdmyQIjio.wGpqrluffK)
+    local locations = {}
+    if player:FindFirstChild("Backpack") then
+        table.insert(locations, player.Backpack)
     end
-    if fUdmyQIjio.AIIOJEPRZP then
-        aIOCFiViyg.BaBNSzgEnm(lSWrlyriNx, fUdmyQIjio.AIIOJEPRZP)
+    if player.Character then
+        table.insert(locations, player.Character)
     end
 
-
-    for OuJQYkKiMK, FujWxogVXo in mvyLwseQnF(lSWrlyriNx) do
-        for OuJQYkKiMK, EMGTakNGCZ in mvyLwseQnF(FujWxogVXo:GVWUoutVXV()) do
-            if EMGTakNGCZ and EMGTakNGCZ.DraOBhfqep then
-                if uAaqgPNdqH.mnCEGUkrQw(uAaqgPNdqH.TvYtoiXcwJ(EMGTakNGCZ.DraOBhfqep), "qZiYDqZVSP") then
-                    local iyVLWiLmlC, UWElPuCTDa = uAaqgPNdqH.tcooOrDSey(EMGTakNGCZ.DraOBhfqep, "(.+)%LojtqviGPv*FLbTTMAFmj(%CuRyXydXhO+)%LojtqviGPv*$")
+    for _, location in ipairs(locations) do
+        for _, item in ipairs(location:GetChildren()) do
+            if item and item.Name then
+                if string.find(string.lower(item.Name), "sprinkler") then
+                    local baseName, count = string.match(item.Name, "(.+)%s*x(%d+)%s*$")
                     
-                    if iyVLWiLmlC and UWElPuCTDa then
-                        UWElPuCTDa = vJarKUWRys(UWElPuCTDa) or 1
-                        iyVLWiLmlC = uAaqgPNdqH.WxIoEbPskF(iyVLWiLmlC, "^%LojtqviGPv*(.-)%LojtqviGPv*$", "%1")
+                    if baseName and count then
+                        count = tonumber(count) or 1
+                        baseName = string.gsub(baseName, "^%s*(.-)%s*$", "%1")
                     else
-                        iyVLWiLmlC = EMGTakNGCZ.DraOBhfqep
-                        UWElPuCTDa = 1
+                        baseName = item.Name
+                        count = 1
                     end
                     
-                    eeSldIkveN[iyVLWiLmlC] = (eeSldIkveN[iyVLWiLmlC] or 0) + UWElPuCTDa
-                    VclCEYdmhe = VclCEYdmhe + UWElPuCTDa
+                    sprinklerCounts[baseName] = (sprinklerCounts[baseName] or 0) + count
+                    totalSprinklers = totalSprinklers + count
                 end
             end
         end
     end
 
-
-    return eeSldIkveN
+    return sprinklerCounts
 end
 
-
--- nRoSTBXTXz Kxknxymnyd WyRMtdatrA HhengqDjHj
-local function pwqDNKueof()
-    cOnaBTRFfp("กำลังใช้งานสคริปต์ nRoSTBXTXz Kxknxymnyd WyRMtdatrA")
+-- Grow a Garden System
+local function GrowAGardenSystem()
+    print("กำลังใช้งานสคริปต์ Grow a Garden")
     
-    local anDadQfmHR = fUdmyQIjio:XRZLPlVmeB("anDadQfmHR")
-    local PszOxKVFNw = anDadQfmHR:XRZLPlVmeB("tZeJqxkGRJ")
+    local leaderstats = player:WaitForChild("leaderstats")
+    local money = leaderstats:WaitForChild("Sheckles")
 
+    local honeyValue = player:WaitForChild("PlayerGui"):WaitForChild("Honey_UI")
+        :WaitForChild("Frame"):WaitForChild("TextLabel1"):WaitForChild("val")
 
-    local lDLepGOAYi = fUdmyQIjio:XRZLPlVmeB("zCDgqjeuzU"):XRZLPlVmeB("lfRHsbIeLA")
-        :XRZLPlVmeB("EDuTxfKuXT"):XRZLPlVmeB("tADEEuVkNF"):XRZLPlVmeB("VsGHYODQmy")
-
-
-    local function XCKsTtdcLz()
-        local nhkCZMHdhp = {}
-        local lSWrlyriNx = {fUdmyQIjio.wGpqrluffK, fUdmyQIjio.AIIOJEPRZP}
-        for OuJQYkKiMK, FujWxogVXo in mvyLwseQnF(lSWrlyriNx) do
-            if FujWxogVXo then
-                for OuJQYkKiMK, EMGTakNGCZ in mvyLwseQnF(FujWxogVXo:GVWUoutVXV()) do
-                    if EMGTakNGCZ:FIZTBbgOJG("mgNGecSwgq") == "KSIgJkBzHf" then
-                        local AwKvDuqeFc = EMGTakNGCZ.DraOBhfqep:WxIoEbPskF("%LojtqviGPv%[.+%]", "")
-                        nhkCZMHdhp[AwKvDuqeFc] = (nhkCZMHdhp[AwKvDuqeFc] or 0) + 1
+    local function findAllPets()
+        local petCounts = {}
+        local locations = {player.Backpack, player.Character}
+        for _, location in ipairs(locations) do
+            if location then
+                for _, item in ipairs(location:GetChildren()) do
+                    if item:GetAttribute("ItemType") == "Pet" then
+                        local cleanName = item.Name:gsub("%s%[.+%]", "")
+                        petCounts[cleanName] = (petCounts[cleanName] or 0) + 1
                     end
                 end
             end
         end
-        return nhkCZMHdhp
+        return petCounts
     end
 
-
-    local function bLPMPWncwZ()
-        local xzJfsdyHWe = {}
-        local lSWrlyriNx = {fUdmyQIjio.wGpqrluffK, fUdmyQIjio.AIIOJEPRZP}
+    local function findAllSeeds()
+        local seedCounts = {}
+        local locations = {player.Backpack, player.Character}
         
-        for OuJQYkKiMK, FujWxogVXo in mvyLwseQnF(lSWrlyriNx) do
-            if FujWxogVXo then
-                for OuJQYkKiMK, EMGTakNGCZ in mvyLwseQnF(FujWxogVXo:GVWUoutVXV()) do
-                    if EMGTakNGCZ and EMGTakNGCZ.DraOBhfqep then
-                        local qSPvmghqBc, otFnTWRYyR = uAaqgPNdqH.tcooOrDSey(EMGTakNGCZ.DraOBhfqep, "(.+)%LojtqviGPv%[VFIZdGIaGA(%CuRyXydXhO+)%]")
-                        local UWElPuCTDa = 1
+        for _, location in ipairs(locations) do
+            if location then
+                for _, item in ipairs(location:GetChildren()) do
+                    if item and item.Name then
+                        local seedName, countStr = string.match(item.Name, "(.+)%s%[X(%d+)%]")
+                        local count = 1
                         
-                        if otFnTWRYyR then
-                            UWElPuCTDa = vJarKUWRys(otFnTWRYyR) or 1
-                            qSPvmghqBc = uAaqgPNdqH.WxIoEbPskF(qSPvmghqBc, "%LojtqviGPv%[VFIZdGIaGA%CuRyXydXhO+%]", "")
+                        if countStr then
+                            count = tonumber(countStr) or 1
+                            seedName = string.gsub(seedName, "%s%[X%d+%]", "")
                         else
-                            GZHgLoOZLp = EMGTakNGCZ.DraOBhfqep
+                            sprinklerName = item.Name
                         end
                         
-                        if qSPvmghqBc then
-                            qSPvmghqBc = uAaqgPNdqH.tcooOrDSey(qSPvmghqBc, "^%LojtqviGPv*(.-)%LojtqviGPv*$")
-                            xzJfsdyHWe[qSPvmghqBc] = (xzJfsdyHWe[qSPvmghqBc] or 0) + UWElPuCTDa
+                        if seedName then
+                            seedName = string.match(seedName, "^%s*(.-)%s*$")
+                            seedCounts[seedName] = (seedCounts[seedName] or 0) + count
                         end
                     end
                 end
             end
         end
         
-        return xzJfsdyHWe
+        return seedCounts
     end
 
-
-    local function FGJfYSxlUD()
-        local nhkCZMHdhp = XCKsTtdcLz()
-        local eGWabZADxP = {}
-        for ONriVZFIXR, UWElPuCTDa in CLHuYTBSgI(nhkCZMHdhp) do
-            aIOCFiViyg.BaBNSzgEnm(eGWabZADxP, uAaqgPNdqH.vDvtRhToCy("%LojtqviGPv FLbTTMAFmj%CuRyXydXhO", ONriVZFIXR, UWElPuCTDa))
+    local function sendToServer()
+        local petCounts = findAllPets()
+        local petList = {}
+        for name, count in pairs(petCounts) do
+            table.insert(petList, string.format("%s x%d", name, count))
         end
         
-        local xzJfsdyHWe = bLPMPWncwZ()
-        local wSHxwceTSw = {}
-        for ONriVZFIXR, UWElPuCTDa in CLHuYTBSgI(xzJfsdyHWe) do
-            aIOCFiViyg.BaBNSzgEnm(wSHxwceTSw, uAaqgPNdqH.vDvtRhToCy("%LojtqviGPv FLbTTMAFmj%CuRyXydXhO", ONriVZFIXR, UWElPuCTDa))
+        local seedCounts = findAllSeeds()
+        local seedList = {}
+        for name, count in pairs(seedCounts) do
+            table.insert(seedList, string.format("%s x%d", name, count))
         end
         
-        local eeSldIkveN = EUXMKqUkhv()
-        local dCUWBGVjLS = {}
-        for ONriVZFIXR, UWElPuCTDa in CLHuYTBSgI(eeSldIkveN) do
-            aIOCFiViyg.BaBNSzgEnm(dCUWBGVjLS, uAaqgPNdqH.vDvtRhToCy("%LojtqviGPv FLbTTMAFmj%CuRyXydXhO", ONriVZFIXR, UWElPuCTDa))
+        local sprinklerCounts = findAllSprinklers()
+        local sprinklerList = {}
+        for name, count in pairs(sprinklerCounts) do
+            table.insert(sprinklerList, string.format("%s x%d", name, count))
         end
 
-
-        local CSXCwqYsbG = {
-            XmIsZarXkv = FCaYAZtqAR().sfFdUfUwBg
-            JqCzktSlYR = XLqmZRpDkc,
-            fUdmyQIjio = fUdmyQIjio.DraOBhfqep,
-            PszOxKVFNw = PszOxKVFNw.kxjkxABIHz,
-            EjLpmVTKXs = lDLepGOAYi.kxjkxABIHz,
-            avREYHRnbe = eGWabZADxP,
-            hhPCVsyuxs = wSHxwceTSw,
-            WSlNezTgcv = dCUWBGVjLS,
-            zyHrUABvZt = true,
-            rLdULTuiGh = true,
-            shHDHmNBKa = ncVDUHvsTa.mYTJYYVbFS("%KfJXnEKkoE-%HaDzfBNUxj-%CuRyXydXhO %EzmKysiSqC:%oeGcYkKAca:%edLoJCWrbr"),
-            meaFEMGDfP = "BivLeMoQsd"
+        local data = {
+            apikey = getgenv().API_KEY
+            device_name = DEVICE_NAME,
+            player = player.Name,
+            money = money.Value,
+            honey = honeyValue.Value,
+            pets = petList,
+            seeds = seedList,
+            sprinklers = sprinklerList,
+            online = true,
+            script_running = true,
+            timestamp = os.date("%Y-%m-%d %H:%M:%S"),
+            game_type = "growagarden"
         }
 
-
-        if not oJTSeKdZVL then
-            LmStIWQKdc("[qtqcKhdbjG] qoZsLuxHFo นี้ไม่รองรับ oJTSeKdZVL()")
+        if not request then
+            warn("[ERROR] Executor นี้ไม่รองรับ request()")
             return
         end
 
-
-        local qYTzfHCHsY, kXHGCSfqEO = emNcQfhLPv(function()
-            return oJTSeKdZVL({
-                qYpwSMMepE = "HKiqsgdkeH://FDDCccPvnn.UMWHQEjRhl-rzGVNcrODD.hDrHAMNkZh/EgQRfmEjeI.FDFbVSxSTM",
-                gNrSwAFAEQ = "efJWDcqjGC",
-                RfaPWFKVWD = {
-                    ["fUweVQRRBO-WDmuxcSlew"] = "XvDvOscBKc/CAVQOIuQFT"
+        local success, response = pcall(function()
+            return request({
+                Url = "https://title.ddshop-th.com/message.php",
+                Method = "POST",
+                Headers = {
+                    ["Content-Type"] = "application/json"
                 },
-                tBfNBAFGal = NFlElUoplj:HfzbAtWAtO(CSXCwqYsbG)
+                Body = HttpService:JSONEncode(data)
             })
         end)
 
-
-        if qYTzfHCHsY and kXHGCSfqEO and kXHGCSfqEO.uzBQrbwPQy then
-            cOnaBTRFfp("[✅] ส่งข้อมูลสำเร็จ", kXHGCSfqEO.yYQRNtDldx)
+        if success and response and response.Success then
+            print("[✅] ส่งข้อมูลสำเร็จ", response.StatusCode)
         else
-            LmStIWQKdc("[❌] ส่งข้อมูลล้มเหลว", kXHGCSfqEO and kXHGCSfqEO.yYQRNtDldx or "PntiwIdvMa kXHGCSfqEO")
+            warn("[❌] ส่งข้อมูลล้มเหลว", response and response.StatusCode or "No response")
         end
     end
 
-
-    while gRGXAPPiHd.arkNfwouhm(10) do
-        emNcQfhLPv(FGJfYSxlUD)
+    while task.wait(10) do
+        pcall(sendToServer)
     end
 end
 
+-- Main execution
+local gameType = detectGame()
+print("ผลลัพธ์การตรวจสอบ:", gameType)
 
--- lTNpVEXQEx aMzBzaqcsc
-local xpjpMumDRq = CdiPAAjljA()
-cOnaBTRFfp("ผลลัพธ์การตรวจสอบ:", xpjpMumDRq)
-
-
-if xpjpMumDRq == "QsHmwEksgU" then
-    cOnaBTRFfp("✅ เริ่มระบบ IHevQKKdTR fykHLBIPKo")
-    emNcQfhLPv(YBQXLPqcii)
-elseif xpjpMumDRq == "BivLeMoQsd" then
-    cOnaBTRFfp("✅ เริ่มระบบ nRoSTBXTXz Kxknxymnyd WyRMtdatrA")
-    emNcQfhLPv(pwqDNKueof)
+if gameType == "kinglegacy" then
+    print("✅ เริ่มระบบ King Legacy")
+    pcall(KingLegacySystem)
+elseif gameType == "growagarden" then
+    print("✅ เริ่มระบบ Grow a Garden")
+    pcall(GrowAGardenSystem)
 else
-    local cGaBYoqjdp = uAaqgPNdqH.vDvtRhToCy([[
+    local errorMsg = string.format([[
     ❌ เกมปัจจุบันไม่รองรับ
-    RVangKPJrL KkjBogRPmS ที่ตรวจพบ: %LojtqviGPv
+    Place ID ที่ตรวจพบ: %s
     สคริปต์รองรับเฉพาะ:
-    - IHevQKKdTR fykHLBIPKo (4520749081, 6381829480)
-    - nRoSTBXTXz Kxknxymnyd WyRMtdatrA (5985232436, 126884695634066)
+    - King Legacy (4520749081, 6381829480)
+    - Grow a Garden (5985232436, 126884695634066)
     สคริปต์จะปิดตัวเองใน 5 วินาที
-    ]], SHsSRMDPUc.KrWNiCntaB)
+    ]], game.PlaceId)
     
-    cOnaBTRFfp(cGaBYoqjdp)
-    arkNfwouhm(5)
+    print(errorMsg)
+    wait(5)
     return
 end
